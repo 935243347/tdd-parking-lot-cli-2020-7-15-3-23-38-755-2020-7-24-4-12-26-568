@@ -81,4 +81,18 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNull(resultCar);
     }
+    @Test
+    void should_print_no_car_when_fetchCar_given_1_parking_boy_1_used_ticket() {
+        //Given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car("1001");
+        Ticket ticket = new Ticket(car);
+        //When
+        parkingBoy.parkCar(car);
+        parkingBoy.fatchCar(ticket);    //simulate the ticket has already been used.
+        Car resultCar = parkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+    }
 }
