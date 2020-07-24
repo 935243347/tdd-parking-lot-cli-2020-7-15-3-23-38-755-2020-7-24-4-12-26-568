@@ -17,4 +17,14 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNotNull(parkingTicket);
     }
+    @Test
+    void should_return_1_car_when_fetchCar_given_1_parking_boy_1_ticket() {
+        //Given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket ticket = new Ticket();
+        //When
+        Car car = parkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNotNull(car);
+    }
 }
