@@ -89,4 +89,18 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNull(resultCar);
     }
+    @Test
+    void should_print_parking_lot_capacity_is_full_when_parkCar_given_1_parking_boy_1_car_parking_lot_capacity_is_full() {
+        //Given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        for(int i = 0; i < 10; i++){
+            Car car = new Car("100"+i);
+            parkingBoy.parkCar(car);
+        }
+        //When
+        Car car = new Car("2001");
+        Ticket ticket = parkingBoy.parkCar(car);
+        //Then
+        Assertions.assertNull(ticket);
+    }
 }
