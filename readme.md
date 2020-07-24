@@ -70,3 +70,63 @@ AC1. The parking lot service manager can add parking boys to management list. An
 AC2. The parking lot service manager can also manage parking lots. And (s)he can park or fetch the car just as a standard parking boy (*Story 3*). Note that (s)he can only store and fetch the car from his/her own parking lots.
 
 AC3. If the manager tells the parking boy to park or fetch the car, then the manager should be able to display the error message to the customer if the parking boy failed to do the operation.
+
+
+
+## Story 1
+
+As a customer, I would like to give my car to a parking boy so that he can help me park a car to the parking lot.
+
+##### AC1: The parking boy can park a car into the parking lot and returns a parking ticket. The customer can give the parking ticket back to the parking boy to fetch the car.
+
+**Given:** 1 parking boy, 1 car
+
+**When:** parking boy park car in parking lot
+
+**Then:** 1 ticket
+
+**Given:** 1 parking boy, 1 ticket, 1(car in parking lot)
+
+**When:** parking boy fetch car from parking lot
+
+**Then:** 1 car
+
+##### AC2: The parking boy can park multiple cars into on parking lot. And can fetch right car using correspond ticket.
+
+**Given:** 1 parking boy, 2 car
+
+**When:** parking boy park 2 car in parking lot
+
+**Then:** 2 ticket
+
+**Given:** 1 parking boy, 2 ticket, 2(car in parking lot)
+
+**When:** parking boy fetch 2 car from parking lot
+
+**Then:** 2 car
+
+##### AC3: If the customer gives a wrong ticket (the parking boy does not provide the ticket) or does not give a ticket. Then no car should be fetched.
+
+**Given:** 1 parking boy, 1 wrong ticket
+
+**When:** parking boy fetch 1 car from parking lot
+
+**Then:** no car
+
+
+##### AC4: If the customer gives a ticket that has already been used. Then no car should be fetched.
+
+**Given:** 1 parking boy, 1 used ticket
+
+**When:** parking boy fetch 1 car from parking lot
+
+**Then:** no car
+
+
+##### AC5: The parking lot has a capacity (the default capacity of a parking lot is 10). If there is no position, then the user cannot park the car into it. Thus (s)he will not get any ticket.
+
+**Given:** 1 parking boy, 1 car, 10(car in parking lot)
+
+**When:** parking boy park 1 car in parking lot
+
+**Then:** parking lot capacity is full 
