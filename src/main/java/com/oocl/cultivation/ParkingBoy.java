@@ -12,6 +12,10 @@ public class ParkingBoy {
         return new Car();
     }
     public List<Ticket> parkCar(List<Car> carList) {
-        return new ArrayList<>();
+        ArrayList<Ticket> ticketList = new ArrayList<>();
+        for(Car car : carList){
+            ticketList.add(new Ticket());
+        }
+        return ticketList;
     }
 }
