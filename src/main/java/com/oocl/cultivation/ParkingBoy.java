@@ -20,6 +20,10 @@ public class ParkingBoy {
     }
 
     public List<Car> fatchCar(List<Ticket> ticketList) {
-        return new ArrayList<>();
+        ArrayList<Car> carList = new ArrayList<>();
+        for(Ticket ticket : ticketList){
+            carList.add(new Car());
+        }
+        return carList;
     }
 }
