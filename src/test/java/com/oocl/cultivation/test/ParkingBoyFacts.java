@@ -16,8 +16,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_1_ticket_when_parkCar_given_1_parking_boy_1_car() {
         //Given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car("1001");
         //When
         Ticket parkingTicket = parkingBoy.parkCar(car);
@@ -27,8 +26,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_1_car_when_fetchCar_given_1_parking_boy_1_ticket() {
         //Given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car("1001");
         Ticket ticket = new Ticket(car);
         //When
@@ -40,8 +38,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_2_ticket_when_parkCar_given_1_parking_boy_2_car() {
         //Given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car1 = new Car("1001");
         Car car2 = new Car("1002");
         List<Car> carList = new ArrayList<>();
@@ -55,8 +52,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_2_car_when_parkCar_given_1_parking_boy_2_ticket() {
         //Given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car1 = new Car("1001");
         Car car2 = new Car("1002");
         Ticket ticket1 = new Ticket(car1);
@@ -72,8 +68,7 @@ class ParkingBoyFacts {
     @Test
     void should_print_no_car_when_fetchCar_given_1_parking_boy_1_wrong_ticket() {
         //Given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car("1001");
         Ticket ticket = new Ticket(car);
         //When
@@ -84,8 +79,7 @@ class ParkingBoyFacts {
     @Test
     void should_print_no_car_when_fetchCar_given_1_parking_boy_1_used_ticket() {
         //Given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car("1001");
         Ticket ticket = new Ticket(car);
         //When

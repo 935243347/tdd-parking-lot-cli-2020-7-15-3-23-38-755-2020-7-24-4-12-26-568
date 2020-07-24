@@ -6,8 +6,8 @@ import java.util.List;
 public class ParkingBoy {
     private ParkingLot parkingLot;
 
-    public ParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
+    public ParkingBoy() {
+        this.parkingLot = new ParkingLot();
     }
 
     public Ticket parkCar(Car car) {
