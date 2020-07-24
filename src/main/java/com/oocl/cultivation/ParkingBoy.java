@@ -18,4 +18,8 @@ public class ParkingBoy {
         }
         return ticketList;
     }
+
+    public List<Car> fatchCar(List<Ticket> ticketList) {
+        return new ArrayList<>();
+    }
 }
