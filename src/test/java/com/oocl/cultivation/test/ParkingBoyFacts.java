@@ -60,4 +60,14 @@ class ParkingBoyFacts {
         //Then
         assertEquals(2,fetchCars.size());
     }
+    @Test
+    void should_print_no_car__when_fetchCar_given_1_parking_boy_1_wrong_ticket() {
+        //Given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket ticket = new Ticket();
+        //When
+        Car car = parkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(car);
+    }
 }
