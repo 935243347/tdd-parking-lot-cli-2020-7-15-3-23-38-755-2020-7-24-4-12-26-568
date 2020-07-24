@@ -7,8 +7,13 @@ public class ParkingLot {
     private List<Ticket> ParkingList = new ArrayList<>();
 
     public Ticket packCar(Car car) {
-        Ticket ticket = new Ticket(car);
-        ParkingList.add(ticket);
+        Ticket ticket = null;
+        if(ParkingList.size() >= 10){
+            System.out.println("parking lot capacity is full");
+        } else {
+            ticket = new Ticket(car);
+            ParkingList.add(ticket);
+        }
         return ticket;
     }
 
