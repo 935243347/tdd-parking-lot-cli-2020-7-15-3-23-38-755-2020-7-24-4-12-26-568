@@ -152,4 +152,18 @@ public class SuperSmartParkingBoyTest {
         Assertions.assertNull(resultCar);
         Assertions.assertEquals("Unrecognized parking ticket.", outContent.toString());
     }
+
+    @Test
+    void should_print_please_provide_your_parking_ticket_when_fetchCar_given_1_super_smart_parking_boy_1_wrong_ticket_1_parking_lot() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        Ticket ticket = null;
+        //When
+        Car resultCar = superSmartParkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+        Assertions.assertEquals("Please provide your parking ticket.", outContent.toString());
+    }
 }
