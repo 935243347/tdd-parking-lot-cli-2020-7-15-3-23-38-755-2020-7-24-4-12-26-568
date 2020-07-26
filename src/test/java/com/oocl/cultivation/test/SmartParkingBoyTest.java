@@ -87,4 +87,19 @@ public class SmartParkingBoyTest {
         //Then
         Assertions.assertNull(resultCar);
     }
+
+    @Test
+    void should_print_no_car_when_fetchCar_given_1_smart_parking_boy_1_used_ticket_1_parking_lot() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        Car car = new Car("1001");
+        //When
+        Ticket ticket = smartParkingBoy.parkCar(car);
+        smartParkingBoy.fatchCar(ticket);    //simulate the ticket has already been used.
+        Car resultCar = smartParkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+    }
 }
