@@ -21,16 +21,20 @@ public class ParkingBoy {
     }
     public List<Ticket> parkCar(List<Car> carList) {
         ArrayList<Ticket> ticketList = new ArrayList<>();
+        Ticket ticket = null;
         for(Car car : carList){
-            ticketList.add(new Ticket(car));
+            ticket = parkingLot.packCar(car);
+            ticketList.add(ticket);
         }
         return ticketList;
     }
 
     public List<Car> fatchCar(List<Ticket> ticketList) {
         ArrayList<Car> carList = new ArrayList<>();
+        Car car = null;
         for(Ticket ticket : ticketList){
-            carList.add(new Car(ticket.getCar().getEnginId()));
+            car = parkingLot.fatchCar(ticket);
+            carList.add(car);
         }
         return carList;
     }
