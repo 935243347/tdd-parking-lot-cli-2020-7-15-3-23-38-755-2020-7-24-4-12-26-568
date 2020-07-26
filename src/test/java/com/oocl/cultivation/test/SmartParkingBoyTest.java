@@ -141,14 +141,28 @@ public class SmartParkingBoyTest {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car("1001");
         //When
-        Ticket ticket = parkingBoy.parkCar(car);
-        parkingBoy.fatchCar(ticket);    //simulate the ticket has already been used.
-        Car resultCar = parkingBoy.fatchCar(ticket);
+        Ticket ticket = smartParkingBoy.parkCar(car);
+        smartParkingBoy.fatchCar(ticket);    //simulate the ticket has already been used.
+        Car resultCar = smartParkingBoy.fatchCar(ticket);
         //Then
         Assertions.assertNull(resultCar);
         Assertions.assertEquals("Unrecognized parking ticket.", outContent.toString());
+    }
+
+    @Test
+    void should_print_please_provide_your_parking_ticket_when_fetchCar_given_1_smart_parking_boy_1_wrong_ticket_1_parking_lot() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        Ticket ticket = null;
+        //When
+        Car resultCar = smartParkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+        Assertions.assertEquals("Please provide your parking ticket.", outContent.toString());
     }
 }
