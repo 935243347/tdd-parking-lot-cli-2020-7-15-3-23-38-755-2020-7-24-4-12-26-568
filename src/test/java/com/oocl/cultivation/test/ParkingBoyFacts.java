@@ -135,4 +135,16 @@ class ParkingBoyFacts {
         Assertions.assertNull(resultCar);
         Assertions.assertEquals("Unrecognized parking ticket.", outContent.toString());
     }
+
+    @Test
+    void should_print_please_provide_your_parking_ticket_when_fetchCar_given_1_parking_boy_1_wrong_ticket() {
+        //Given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket ticket = null;
+        //When
+        Car resultCar = parkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+        Assertions.assertEquals("Please provide your parking ticket.", outContent.toString());
+    }
 }
