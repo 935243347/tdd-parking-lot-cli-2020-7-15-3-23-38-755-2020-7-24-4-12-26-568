@@ -24,7 +24,7 @@ public class ParkingLot {
                 return actualTicket.getCar();
             }
         }
-        System.out.println("no car");
+        System.out.print("Unrecognized parking ticket.");
         return null;
     }
 

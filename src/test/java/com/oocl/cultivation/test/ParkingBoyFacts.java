@@ -36,6 +36,7 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNotNull(parkingTicket);
     }
+
     @Test
     void should_return_1_car_when_fetchCar_given_1_parking_boy_1_ticket() {
         //Given
@@ -48,6 +49,7 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNotNull(resultCar);
     }
+
     @Test
     void should_return_2_ticket_when_parkCar_given_1_parking_boy_2_car() {
         //Given
@@ -60,8 +62,9 @@ class ParkingBoyFacts {
         //When
         List<Ticket> parkTickets = parkingBoy.parkCar(carList);
         //Then
-        assertEquals(2,parkTickets.size());
+        assertEquals(2, parkTickets.size());
     }
+
     @Test
     void should_return_2_car_when_parkCar_given_1_parking_boy_2_ticket() {
         //Given
@@ -76,8 +79,9 @@ class ParkingBoyFacts {
         //When
         List<Car> fetchCars = parkingBoy.fatchCar(ticketList);
         //Then
-        assertEquals(2,fetchCars.size());
+        assertEquals(2, fetchCars.size());
     }
+
     @Test
     void should_print_no_car_when_fetchCar_given_1_parking_boy_1_wrong_ticket() {
         //Given
@@ -89,6 +93,7 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNull(resultCar);
     }
+
     @Test
     void should_print_no_car_when_fetchCar_given_1_parking_boy_1_used_ticket() {
         //Given
@@ -101,12 +106,13 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNull(resultCar);
     }
+
     @Test
     void should_print_parking_lot_capacity_is_full_when_parkCar_given_1_parking_boy_1_car_parking_lot_capacity_is_full() {
         //Given
         ParkingBoy parkingBoy = new ParkingBoy();
-        for(int i = 0; i < 10; i++){
-            Car car = new Car("100"+i);
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car("100" + i);
             parkingBoy.parkCar(car);
         }
         //When
@@ -115,6 +121,7 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNull(ticket);
     }
+
     @Test
     void should_print_unrecognized_parking_ticket_when_fetchCar_given_1_parking_boy_1_used_ticket() {
         //Given
@@ -126,6 +133,6 @@ class ParkingBoyFacts {
         Car resultCar = parkingBoy.fatchCar(ticket);
         //Then
         Assertions.assertNull(resultCar);
-        Assertions.assertEquals("Unrecognized parking ticket.",outContent.toString());
+        Assertions.assertEquals("Unrecognized parking ticket.", outContent.toString());
     }
 }
