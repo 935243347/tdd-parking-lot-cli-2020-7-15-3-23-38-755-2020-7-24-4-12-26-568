@@ -187,7 +187,7 @@ public class SmartParkingBoyTest {
 
 
     @Test
-    void should_return_1_ticket_when_parkCar_given_1_parking_boy_2_parking_lot_1_car() {
+    void should_return_5_parking_capacity_when_parkCar_given_1_parking_boy_2_parking_lot_1_car() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
