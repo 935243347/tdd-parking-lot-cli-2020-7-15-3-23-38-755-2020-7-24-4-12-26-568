@@ -32,4 +32,7 @@ public class ParkingLot {
         return null;
     }
 
+    public List<Ticket> getParkingList() {
+        return ParkingList;
+    }
 }

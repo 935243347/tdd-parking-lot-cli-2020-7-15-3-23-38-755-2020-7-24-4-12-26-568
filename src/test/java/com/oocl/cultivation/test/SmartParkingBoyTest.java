@@ -184,4 +184,21 @@ public class SmartParkingBoyTest {
         Assertions.assertEquals("Not enough position.", outContent.toString());
     }
 
+
+    @Test
+    void should_return_1_ticket_when_parkCar_given_1_parking_boy_2_parking_lot_1_car() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        //When
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car("100" + i);
+            smartParkingBoy.parkCar(car);
+        }
+        //Then
+        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(0).getParkingList().size());
+        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(1).getParkingList().size());
+    }
 }
