@@ -12,7 +12,11 @@ public class ParkingBoy {
 
     public Ticket parkCar(Car car) {
         for (ParkingLot parkingLot : parkingLots) {
-            return parkingLot.packCar(car);
+            Ticket ticket = parkingLot.packCar(car);
+            if(ticket == null){
+                continue;
+            }
+            return ticket;
         }
         return null;
     }
