@@ -1,15 +1,31 @@
 package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.*;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SmartParkingBoyTest {
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+    }
     @Test
     void should_return_1_ticket_when_parkCar_given_1_smart_parking_boy_1_car_1_parking_lot() {
         //Given
@@ -118,5 +134,21 @@ public class SmartParkingBoyTest {
         Ticket ticket = smartParkingBoy.parkCar(car);
         //Then
         Assertions.assertNull(ticket);
+    }
+
+    @Test
+    void should_print_unrecognized_parking_ticket_when_fetchCar_given_1_smart_parking_boy_1_used_ticket_1_parking_lot() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        Car car = new Car("1001");
+        //When
+        Ticket ticket = parkingBoy.parkCar(car);
+        parkingBoy.fatchCar(ticket);    //simulate the ticket has already been used.
+        Car resultCar = parkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+        Assertions.assertEquals("Unrecognized parking ticket.", outContent.toString());
     }
 }
