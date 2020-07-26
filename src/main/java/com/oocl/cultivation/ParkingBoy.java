@@ -13,7 +13,7 @@ public class ParkingBoy {
     public Ticket parkCar(Car car) {
         for (ParkingLot parkingLot : parkingLots) {
             Ticket ticket = parkingLot.packCar(car);
-            if(ticket == null){
+            if (ticket == null) {
                 continue;
             }
             return ticket;

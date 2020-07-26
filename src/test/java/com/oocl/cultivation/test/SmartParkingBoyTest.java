@@ -165,4 +165,23 @@ public class SmartParkingBoyTest {
         Assertions.assertNull(resultCar);
         Assertions.assertEquals("Please provide your parking ticket.", outContent.toString());
     }
+
+    @Test
+    void should_print_not_enough_position_when_parkCar_given_1_smart_parking_boy_1_car_park_in_full_capacity_parking_lot() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car("100" + i);
+            smartParkingBoy.parkCar(car);
+        }
+        //When
+        Car car = new Car("2001");
+        Ticket ticket = smartParkingBoy.parkCar(car);
+        //Then
+        Assertions.assertNull(ticket);
+        Assertions.assertEquals("Not enough position.", outContent.toString());
+    }
+
 }
