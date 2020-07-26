@@ -186,19 +186,19 @@ public class SuperSmartParkingBoyTest {
     }
 
     @Test
-    void should_return_4_5_parking_capacity_when_parkCar_given_1_parking_boy_2_parking_lot_1_car() {
+    void should_return_4_5_parking_capacity_when_parkCar_given_1_super_parking_boy_2_parking_lot_1_car() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot(5));
         parkingLots.add(new ParkingLot(10));
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
         //When
         for (int i = 0; i < 10; i++) {
             Car car = new Car("100" + i);
-            smartParkingBoy.parkCar(car);
+            superSmartParkingBoy.parkCar(car);
         }
         //Then
-        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(0).getAvailablePosition());
-        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(1).getAvailablePosition());
+        Assertions.assertEquals(4, superSmartParkingBoy.getParkingLots().get(0).getAvailablePosition());
+        Assertions.assertEquals(6, superSmartParkingBoy.getParkingLots().get(1).getAvailablePosition());
     }
 }
