@@ -14,7 +14,7 @@ public class ParkingLot {
         this.totalCapacity = totalCapacity;
     }
 
-    public Ticket packCar(Car car) {
+    public synchronized Ticket packCar(Car car) {
         Ticket ticket = null;
         if (this.parkingList.size() >= this.totalCapacity) {
             System.out.print("Not enough position.");
@@ -26,7 +26,7 @@ public class ParkingLot {
         return ticket;
     }
 
-    public Car fatchCar(Ticket ticket) {
+    public synchronized Car fatchCar(Ticket ticket) {
         if (ticket != null) {
             for (Ticket actualTicket : this.parkingList) {
                 if (actualTicket.equals(ticket)) {
