@@ -147,4 +147,20 @@ class ParkingBoyFacts {
         Assertions.assertNull(resultCar);
         Assertions.assertEquals("Please provide your parking ticket.", outContent.toString());
     }
+
+    @Test
+    void should_print_not_enough_position_when_parkCar_given_1_parking_boy_1_car_park_in_full_capacity_parking_lot() {
+        //Given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car("100" + i);
+            parkingBoy.parkCar(car);
+        }
+        //When
+        Car car = new Car("2001");
+        Ticket ticket = parkingBoy.parkCar(car);
+        //Then
+        Assertions.assertNull(ticket);
+        Assertions.assertEquals("Not enough position.", outContent.toString());
+    }
 }
