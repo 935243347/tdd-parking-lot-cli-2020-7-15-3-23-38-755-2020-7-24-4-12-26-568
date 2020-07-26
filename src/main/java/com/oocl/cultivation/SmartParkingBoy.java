@@ -14,7 +14,7 @@ public class SmartParkingBoy extends ParkingBoy{
     public Ticket parkCar(Car car) {
         ParkingLot minParkingLot = parkingLots.get(0);
         for (ParkingLot parkingLot : this.parkingLots) {
-            if(parkingLot.getParkingList().size() < minParkingLot.getParkingList().size()){
+            if(parkingLot.getAvailablePosition() < minParkingLot.getAvailablePosition()){
                 minParkingLot = parkingLot;
             }
         }

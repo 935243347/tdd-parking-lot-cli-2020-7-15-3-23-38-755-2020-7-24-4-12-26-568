@@ -8,6 +8,8 @@ public class ParkingLot {
 
     private int totalCapacity;
 
+    private int availablePosition;
+
     public ParkingLot(int totalCapacity) {
         this.totalCapacity = totalCapacity;
     }
@@ -19,6 +21,7 @@ public class ParkingLot {
         } else {
             ticket = new Ticket(car);
             this.parkingList.add(ticket);
+            availablePosition++;
         }
         return ticket;
     }
@@ -28,6 +31,7 @@ public class ParkingLot {
             for (Ticket actualTicket : this.parkingList) {
                 if (actualTicket.equals(ticket)) {
                     this.parkingList.remove(actualTicket);
+                    availablePosition--;
                     return actualTicket.getCar();
                 }
             }
@@ -38,7 +42,11 @@ public class ParkingLot {
         return null;
     }
 
-    public List<Ticket> getParkingList() {
-        return parkingList;
+    public int getTotalCapacity() {
+        return totalCapacity;
+    }
+
+    public int getAvailablePosition() {
+        return availablePosition;
     }
 }

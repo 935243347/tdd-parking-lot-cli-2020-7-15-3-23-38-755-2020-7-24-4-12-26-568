@@ -198,7 +198,7 @@ public class SuperSmartParkingBoyTest {
             smartParkingBoy.parkCar(car);
         }
         //Then
-        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(0).getParkingList().size());
-        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(1).getParkingList().size());
+        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(0).getAvailablePosition());
+        Assertions.assertEquals(5, smartParkingBoy.getParkingLots().get(1).getAvailablePosition());
     }
 }
