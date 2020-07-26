@@ -4,24 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
-    private List<Ticket> ParkingList = new ArrayList<>();
+    private List<Ticket> parkingList = new ArrayList<>();
+
+    private int totalCapacity;
+
+    public ParkingLot(int totalCapacity) {
+        this.totalCapacity = totalCapacity;
+    }
 
     public Ticket packCar(Car car) {
         Ticket ticket = null;
-        if (ParkingList.size() >= 10) {
+        if (this.parkingList.size() >= this.totalCapacity) {
             System.out.print("Not enough position.");
         } else {
             ticket = new Ticket(car);
-            ParkingList.add(ticket);
+            this.parkingList.add(ticket);
         }
         return ticket;
     }
 
     public Car fatchCar(Ticket ticket) {
         if (ticket != null) {
-            for (Ticket actualTicket : ParkingList) {
+            for (Ticket actualTicket : this.parkingList) {
                 if (actualTicket.equals(ticket)) {
-                    ParkingList.remove(actualTicket);
+                    this.parkingList.remove(actualTicket);
                     return actualTicket.getCar();
                 }
             }
@@ -33,6 +39,6 @@ public class ParkingLot {
     }
 
     public List<Ticket> getParkingList() {
-        return ParkingList;
+        return parkingList;
     }
 }

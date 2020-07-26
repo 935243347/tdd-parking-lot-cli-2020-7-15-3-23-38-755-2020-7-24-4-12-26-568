@@ -31,7 +31,7 @@ public class SmartParkingBoyTest {
     void should_return_1_ticket_when_parkCar_given_1_smart_parking_boy_1_car_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car("1001");
         //When
@@ -44,7 +44,7 @@ public class SmartParkingBoyTest {
     void should_return_1_car_when_fetchCar_given_1_smart_parking_boy_1_ticket_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car("1001");
         Ticket ticket = new Ticket(car);
@@ -59,7 +59,7 @@ public class SmartParkingBoyTest {
     void should_return_2_ticket_when_parkCar_given_1_smart_parking_boy_2_car_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car1 = new Car("1001");
         Car car2 = new Car("1002");
@@ -76,7 +76,7 @@ public class SmartParkingBoyTest {
     void should_return_2_car_when_parkCar_given_1_smart_parking_boy_2_ticket_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car1 = new Car("1001");
         Car car2 = new Car("1002");
@@ -95,7 +95,7 @@ public class SmartParkingBoyTest {
     void should_print_no_car_when_fetchCar_given_1_smart_parking_boy_1_wrong_ticket_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car("1001");
         Ticket ticket = new Ticket(car);
@@ -109,7 +109,7 @@ public class SmartParkingBoyTest {
     void should_print_no_car_when_fetchCar_given_1_smart_parking_boy_1_used_ticket_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car("1001");
         //When
@@ -124,7 +124,7 @@ public class SmartParkingBoyTest {
     void should_print_parking_lot_capacity_is_full_when_parkCar_given_1_smart_parking_boy_1_car_parking_lot_capacity_is_full() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         for (int i = 0; i < 10; i++) {
             Car car = new Car("100" + i);
@@ -141,7 +141,7 @@ public class SmartParkingBoyTest {
     void should_print_unrecognized_parking_ticket_when_fetchCar_given_1_smart_parking_boy_1_used_ticket_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car("1001");
         //When
@@ -157,7 +157,7 @@ public class SmartParkingBoyTest {
     void should_print_please_provide_your_parking_ticket_when_fetchCar_given_1_smart_parking_boy_1_wrong_ticket_1_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Ticket ticket = null;
         //When
@@ -171,7 +171,7 @@ public class SmartParkingBoyTest {
     void should_print_not_enough_position_when_parkCar_given_1_smart_parking_boy_1_car_park_in_full_capacity_parking_lot() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         for (int i = 0; i < 10; i++) {
             Car car = new Car("100" + i);
@@ -185,13 +185,12 @@ public class SmartParkingBoyTest {
         Assertions.assertEquals("Not enough position.", outContent.toString());
     }
 
-
     @Test
     void should_return_5_parking_capacity_when_parkCar_given_1_parking_boy_2_parking_lot_1_car() {
         //Given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(new ParkingLot());
-        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot(10));
+        parkingLots.add(new ParkingLot(10));
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         //When
         for (int i = 0; i < 10; i++) {
