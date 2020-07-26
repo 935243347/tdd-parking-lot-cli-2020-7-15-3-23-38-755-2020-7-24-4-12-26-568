@@ -73,4 +73,18 @@ public class SmartParkingBoyTest {
         //Then
         assertEquals(2, fetchCars.size());
     }
+
+    @Test
+    void should_print_no_car_when_fetchCar_given_1_smart_parking_boy_1_wrong_ticket_1_parking_lot() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        Car car = new Car("1001");
+        Ticket ticket = new Ticket(car);
+        //When
+        Car resultCar = smartParkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+    }
 }
