@@ -102,4 +102,21 @@ public class SuperSmartParkingBoyTest {
         //Then
         Assertions.assertNull(resultCar);
     }
+
+    @Test
+    void should_print_parking_lot_capacity_is_full_when_parkCar_given_1_super_smart_parking_boy_1_car_parking_lot_capacity_is_full() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        for (int i = 0; i < 10; i++) {
+            Car car = new Car("100" + i);
+            superSmartParkingBoy.parkCar(car);
+        }
+        //When
+        Car car = new Car("2001");
+        Ticket ticket = superSmartParkingBoy.parkCar(car);
+        //Then
+        Assertions.assertNull(ticket);
+    }
 }
