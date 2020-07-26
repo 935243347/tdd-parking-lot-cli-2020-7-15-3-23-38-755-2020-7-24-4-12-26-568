@@ -26,6 +26,7 @@ public class SmartParkingBoyTest {
     public void restoreStreams() {
         System.setOut(originalOut);
     }
+
     @Test
     void should_return_1_ticket_when_parkCar_given_1_smart_parking_boy_1_car_1_parking_lot() {
         //Given
