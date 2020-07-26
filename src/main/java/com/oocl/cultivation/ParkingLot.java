@@ -8,8 +8,8 @@ public class ParkingLot {
 
     public Ticket packCar(Car car) {
         Ticket ticket = null;
-        if(ParkingList.size() >= 10){
-            System.out.println("parking lot capacity is full");
+        if (ParkingList.size() >= 10) {
+            System.out.print("Not enough position.");
         } else {
             ticket = new Ticket(car);
             ParkingList.add(ticket);
@@ -18,7 +18,7 @@ public class ParkingLot {
     }
 
     public Car fatchCar(Ticket ticket) {
-        if(ticket != null) {
+        if (ticket != null) {
             for (Ticket actualTicket : ParkingList) {
                 if (actualTicket.equals(ticket)) {
                     ParkingList.remove(actualTicket);
