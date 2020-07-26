@@ -4,26 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
-    private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots;
 
-    public ParkingBoy() {
-        this.parkingLot = new ParkingLot();
+    public ParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
     public Ticket parkCar(Car car) {
-        return parkingLot.packCar(car);
+        for (ParkingLot parkingLot : parkingLots) {
+            return parkingLot.packCar(car);
+        }
+        return null;
     }
 
     public Car fatchCar(Ticket ticket) {
-        return parkingLot.fatchCar(ticket);
+        for (ParkingLot parkingLot : parkingLots) {
+            return parkingLot.fatchCar(ticket);
+        }
+        return null;
     }
 
     public List<Ticket> parkCar(List<Car> carList) {
         ArrayList<Ticket> ticketList = new ArrayList<>();
         Ticket ticket = null;
         for (Car car : carList) {
-            ticket = parkingLot.packCar(car);
-            ticketList.add(ticket);
+            for (ParkingLot parkingLot : parkingLots) {
+                ticket = parkingLot.packCar(car);
+                ticketList.add(ticket);
+            }
         }
         return ticketList;
     }
@@ -32,8 +40,10 @@ public class ParkingBoy {
         ArrayList<Car> carList = new ArrayList<>();
         Car car = null;
         for (Ticket ticket : ticketList) {
-            car = parkingLot.fatchCar(ticket);
-            carList.add(car);
+            for (ParkingLot parkingLot : parkingLots) {
+                car = parkingLot.fatchCar(ticket);
+                carList.add(car);
+            }
         }
         return carList;
     }
