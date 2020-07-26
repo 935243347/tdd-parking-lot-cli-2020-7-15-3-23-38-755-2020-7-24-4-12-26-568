@@ -3,15 +3,29 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.Ticket;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(originalOut);
+    }
+
     @Test
     void should_return_1_ticket_when_parkCar_given_1_parking_boy_1_car() {
         //Given
@@ -101,5 +115,17 @@ class ParkingBoyFacts {
         //Then
         Assertions.assertNull(ticket);
     }
-
+    @Test
+    void should_print_unrecognized_parking_ticket_when_fetchCar_given_1_parking_boy_1_used_ticket() {
+        //Given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car car = new Car("1001");
+        //When
+        Ticket ticket = parkingBoy.parkCar(car);
+        parkingBoy.fatchCar(ticket);    //simulate the ticket has already been used.
+        Car resultCar = parkingBoy.fatchCar(ticket);
+        //Then
+        Assertions.assertNull(resultCar);
+        Assertions.assertEquals("Unrecognized parking ticket.",outContent.toString());
+    }
 }
