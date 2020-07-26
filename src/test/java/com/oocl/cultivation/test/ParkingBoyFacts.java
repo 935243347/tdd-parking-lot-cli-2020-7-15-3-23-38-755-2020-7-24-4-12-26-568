@@ -80,9 +80,8 @@ class ParkingBoyFacts {
         //Given
         ParkingBoy parkingBoy = new ParkingBoy();
         Car car = new Car("1001");
-        Ticket ticket = new Ticket(car);
         //When
-        parkingBoy.parkCar(car);
+        Ticket ticket = parkingBoy.parkCar(car);
         parkingBoy.fatchCar(ticket);    //simulate the ticket has already been used.
         Car resultCar = parkingBoy.fatchCar(ticket);
         //Then
