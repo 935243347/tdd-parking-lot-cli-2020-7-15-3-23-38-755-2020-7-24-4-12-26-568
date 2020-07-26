@@ -54,4 +54,23 @@ public class SmartParkingBoyTest {
         //Then
         assertEquals(2, parkTickets.size());
     }
+
+    @Test
+    void should_return_2_car_when_parkCar_given_1_smart_parking_boy_2_ticket_1_parking_lot() {
+        //Given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        Car car1 = new Car("1001");
+        Car car2 = new Car("1002");
+        Ticket ticket1 = new Ticket(car1);
+        Ticket ticket2 = new Ticket(car2);
+        List<Ticket> ticketList = new ArrayList<>();
+        ticketList.add(ticket1);
+        ticketList.add(ticket2);
+        //When
+        List<Car> fetchCars = smartParkingBoy.fatchCar(ticketList);
+        //Then
+        assertEquals(2, fetchCars.size());
+    }
 }
