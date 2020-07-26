@@ -18,13 +18,17 @@ public class ParkingLot {
     }
 
     public Car fatchCar(Ticket ticket) {
-        for(Ticket actualTicket: ParkingList){
-            if(actualTicket.equals(ticket)){
-                ParkingList.remove(actualTicket);
-                return actualTicket.getCar();
+        if(ticket != null) {
+            for (Ticket actualTicket : ParkingList) {
+                if (actualTicket.equals(ticket)) {
+                    ParkingList.remove(actualTicket);
+                    return actualTicket.getCar();
+                }
             }
+            System.out.print("Unrecognized parking ticket.");
+            return null;
         }
-        System.out.print("Unrecognized parking ticket.");
+        System.out.print("Please provide your parking ticket.");
         return null;
     }
 

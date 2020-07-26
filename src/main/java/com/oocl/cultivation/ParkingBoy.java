@@ -11,13 +11,11 @@ public class ParkingBoy {
     }
 
     public Ticket parkCar(Car car) {
-        Ticket ticket = parkingLot.packCar(car);
-        return ticket;
+        return parkingLot.packCar(car);
     }
 
     public Car fatchCar(Ticket ticket) {
-        Car car = parkingLot.fatchCar(ticket);
-        return car;
+        return parkingLot.fatchCar(ticket);
     }
     public List<Ticket> parkCar(List<Car> carList) {
         ArrayList<Ticket> ticketList = new ArrayList<>();
